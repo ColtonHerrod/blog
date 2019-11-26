@@ -15,5 +15,7 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+    - name: Hugo setup
+      uses: peaceiris/actions-hugo@v2.3.0
     - name: Build the Hugo project
       run: hugo -D
