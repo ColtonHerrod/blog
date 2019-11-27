@@ -12,6 +12,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: submodule checkout
+      run: git submodule update --init --recursive
     - name: Hugo setup
       uses: peaceiris/actions-hugo@v2.3.0
     - name: Build the Hugo project
