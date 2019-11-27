@@ -1,6 +1,9 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
@@ -22,7 +25,6 @@ jobs:
     - name: Azure Login
       uses: Azure/login@v1
       with:
-        # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Upload to blob storage
       run: az storage blob upload-batch --destination personal-blog --source public/
