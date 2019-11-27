@@ -1,4 +1,4 @@
-baseURL = "https://personalblog.z19.web.core.windows.net"
+baseURL = " https://blog.coltonherrod.com"
 languageCode = "en-us"
 title = "Colton Herrod's Blog"
 theme = "ananke"
