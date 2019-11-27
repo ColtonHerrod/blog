@@ -1,4 +1,4 @@
-baseURL = " https://blog.coltonherrod.com"
+baseURL = "https://blog.coltonherrod.com"
 languageCode = "en-us"
 title = "Colton Herrod's Blog"
 theme = "ananke"
