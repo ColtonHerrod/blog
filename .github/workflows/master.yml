@@ -17,4 +17,4 @@ jobs:
     - name: Build the Hugo project
       run: hugo -D  
     - name: Upload to blob storage
-      run: az storage blob upload-batch --destination personal-blog --source public/ --account-name personalblog --account-key ${{parameters. AZURE_STORAGE_KEY}}
+      run: az storage blob upload-batch --destination personal-blog --source public/ --account-name personalblog --account-key ${{secrets. AZURE_STORAGE_KEY}}
