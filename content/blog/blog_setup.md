@@ -2,6 +2,7 @@
 title: "Setting up a Blog with Hugo and Azure"
 date: 2019-11-27T09:25:40-06:00
 draft: true
+tag: ["hugo", "azure", "github", "devops", "automation"]
 summary: >
   Walkthrough of how to set up a blog site similar to this.  The walkthrough covers:
 

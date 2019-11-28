@@ -1,171 +1,54 @@
 baseURL = "https://blog.coltonherrod.com"
 languageCode = "en-us"
-title = "Colton Herrod, DevOps Engineer"
-theme = "pure"
-defaultContentLanguage = "en"
-footnoteReturnLinkContents = "↩"
-hasCJKLanguage = true
-paginate = 7.0
-enableEmoji = true
+title = "Colton Herrod"
+# Enable comments by entering your Disqus shortname
+disqusShortname = ""
+# Enable Google Analytics by entering your tracking code
 googleAnalytics = ""
+theme = "hugo-sustain"
 
 [permalinks]
-posts = "/:year/:month/:filename/"
-
-[taxonomies]
-category = "categories"
-tag = "tags"
-series = "series"
-
-[outputFormats]
-
-  [outputFormats.SearchIndex]
-  mediaType = "application/json"
-  baseName = "searchindex"
-  isPlainText = true
-  notAlternative = true
-
-[outputs]
-home = [
-  "HTML",
-  "RSS",
-  "SearchIndex"
-]
-
-[sitemap]
-changefreq = "monthly"
-filename = "sitemap.xml"
-priority = 0.5
-
-[menu]
-
-  [[menu.main]]
-  identifier = "home"
-  name = "Home"
-  title = "Home"
-  url = "/"
-  weight = 1.0
-
-  [[menu.main]]
-  identifier = "archives"
-  name = "Archives"
-  title = "Archives"
-  url = "/posts"
-  weight = 2.0
-
-  [[menu.main]]
-  identifier = "categories"
-  name = "Categories"
-  title = "Categories"
-  url = "/categories"
-  weight = 3.0
-
-  [[menu.main]]
-  identifier = "tags"
-  name = "Tags"
-  title = "Tags"
-  url = "/tags"
-  weight = 4.0
-
-  [[menu.main]]
-  identifier = "about"
-  name = "About"
-  title = "About"
-  url = "/about"
-  weight = 5.0
+  post = "/:year/:month/:day/:slug"
 
 [params]
-  since = 2017.0
-  dateFormatToUse = "2006-01-02"
-  enablePostCopyright = true
-  mainSections = [
-    "posts"
-  ]
-  enableMathJax = true
-  sidebar = "right"
-  widgets = [
-    "board",
-    "category",
-    "tag",
-    "recent_posts"
-  ]
-
-  [params.menuIcons]
-  enable = true
-  home = "icon-home-fill"
-  archives = "icon-archives-fill"
-  categories = "icon-folder"
-  tags = "icon-tags"
-  repository = "icon-project"
-  books = "icon-book-fill"
-  links = "icon-friendship"
-  about = "icon-cup-fill"
-
-  [params.profile]
-  enabled = true
   avatar = "headshot2.jpg"
   author = "Colton Herrod"
-  author_title = "DevOps Engineer"
-  author_description = "DevOps Consultant"
-  location = "Dallas, Texas"
-  follow = "https://github.com/ColtonHerrod"
+  description = "Describe your website"
 
-    [params.profile.social]
-    link_tooltip = false
+  # Custom assets can be linked with their paths relative to static/
+  custom_css = []
+  custom_js  = []
 
-      [params.profile.social.links]
-      github = "https://github.com/ColtonHerrod"
-      rss = "/index.xml"
+[params.social]
+  Github        = "username"
+  Email         = "email@example.com"
+  LinkedIn      = "username"
+  Stackoverflow = "username"
+  Medium        = "username"
+  Telegram      = "username"
 
-  [params.site]
-  title = "Hugo"
-  favicon = "favicon.ico"
-  board = "<p></p>"
+## Main Menu
+[[menu.main]]
+  name = "blog"
+  weight = 100
+  identifier = "blog"
+  url = "/blog/"
+[[menu.main]]
+  name = "projects"
+  identifier = "projects"
+  weight = 200
+  url = "/projects/"
+[[menu.main]]
+  name = "resume"
+  identifier = "resume"
+  weight = 300
+  url = "/resume/"
+[[menu.main]]
+  identifier = "tags"
+  name = "tags"
+  url =  "/tags/"
+  weight = 400
 
-    [params.site.logo]
-    enabled = true
-    width = 40.0
-    height = 40.0
-    url = "favicon.ico"
-
-  [params.share]
-  enable = false
-  sites = ""
-  mobile_sites = ""
-
-  [params.comment]
-  disqus = "your_disqus_name"
-
-    [params.comment.gitalk]
-
-    [params.comment.valine]
-    placeholder = ""
-    avatar = "mm"
-    meta = "nick,mail"
-    pageSize = 10.0
-    visitor = false
-
-  [params.donate]
-  enable = false
-
-  [params.pv]
-
-    [params.pv.busuanzi]
-    enable = false
-
-    [params.pv.leancloud]
-    enable = false
-
-  [params.postCount]
-  enable = true
-  wordcount = true
-  min2read = true
-
-  [params.config]
-  skin = "theme-green"
-  layout = "main-center"
-  excerpt_link = "Read More"
-  toc = true
-
-  [params.search]
-  enable = true
+[taxonomies]
+  category = "categories"
+  tag = "tags"
