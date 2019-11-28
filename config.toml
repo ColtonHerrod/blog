@@ -1,21 +1,21 @@
 baseURL = "https://blog.coltonherrod.com"
 languageCode = "en-us"
-title = "Colton Herrod's Blog"
-theme = "ananke"
+title = "Colton Herrod, DevOps Engineer"
+theme = "m10c"
 
 [params]
-  favicon = ""
-  description = "The last theme you'll ever need. Maybe."
-  facebook = ""
-  twitter = ""
-  instagram = ""
-  youtube = ""
-  github = ""
-  gitlab = ""
-  linkedin = ""
-  mastodon = ""
-  slack = ""
-  # choose a background color from any on this page: http://tachyons.io/docs/themes/skins/ and preface it with "bg-"
-  background_color_class = "bg-black"
-  featured_image = "/images/gohugo-default-sample-hero-image.jpg"
-  recent_posts_number = 2
+  author = "Colton Herrod"
+  description = "Thoughts and experiences from a DevOps consultant."
+  [[params.social]]
+    name = "github"
+    url = "https://github.com/gohugoio"
+  [[params.social]]
+    name = "twitter"
+    url = "https://twitter.com/gohugoio"
+
+
+[Menus]
+  main = [
+    {Name = "Github", URL = "https://github.com/username/"},
+    {Name = "LinkedIn", URL = "https://www.linkedin.com/in/username/"}
+  ]
