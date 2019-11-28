@@ -1,35 +1,45 @@
-<!doctype html>
-<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+<!DOCTYPE html>
+<html lang="{{ .Site.Language }}">
   <head>
-    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} // {{ .Site.Title }}{{ end }}</title>
     <meta charset="utf-8" />
-    {{ hugo.Generator }}
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="{{ .Site.Params.author | default "John Doe" }}" />
-    <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
-    {{ $style := resources.Get "css/main.scss" | resources.ExecuteAsTemplate "css/main.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint -}}
-    <link rel="stylesheet" href="{{ $style.Permalink }}" />
-
-    {{ template "_internal/google_analytics.html" . }}
-    {{ template "_internal/twitter_cards.html" . }}
-    {{ template "_internal/opengraph.html" . }}
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+      {{- block "title" . -}}
+      {{ if .IsPage }}
+        {{ .Title }} - {{ .Site.Title }}
+      {{ else}}
+        {{ .Site.Title}}{{ end }}
+      {{- end -}}
+    </title>
+    {{ partial "head.html" . }}
   </head>
-  <body>
-    <header class="app-header">
-      <a href="{{ .Site.BaseURL }}"><img class="app-header-avatar" src="{{ .Site.Params.avatar | default "avatar.jpg" | relURL }}" alt="{{ .Site.Params.author | default "John Doe" }}" /></a>
-      <h2>{{ .Site.Title }}</h2>
-      <p>{{ .Site.Params.description | default "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium." }}</p>
-      <div class="app-header-social">
-        {{ range .Site.Params.social }}
-          <a target="_blank" href="{{ .url }}" rel="noreferrer noopener">{{ partial "icon.html" (dict "ctx" $ "name" .name ) }}</a>
-        {{ end }}
-      </div>
-    </header>
-    <main class="app-container">
-      {{ block "main" . }}
-        {{ .Content }}
-      {{ end }}
-    </main>
+  {{- $.Scratch.Add "bodyClass" slice }}
+  {{- $config := .Site.Params.config }}
+  {{- if $config.layout }}
+    {{- $.Scratch.Add "bodyClass" $config.layout }}
+  {{- else }}
+    {{- $.Scratch.Add "bodyClass" "main-center" }}
+  {{- end }}
+  {{- with $config.skin }}
+    {{- $.Scratch.Add "bodyClass" . }}
+  {{- end}}
+  {{- if eq .Site.Params.sidebar "none"}} 
+    {{- $.Scratch.Add "bodyClass" "no-sidebar" }}
+  {{- end }}
+  <!-- gen regular pages by mainSections -->
+  {{- if and (.Site.Params.mainSections) (ge (len .Site.Params.mainSections) 0) }}
+  {{- $.Scratch.Add "pages" (where .Site.RegularPages "Type" "in" .Site.Params.mainSections)  }}
+  {{- else }}
+  {{- $.Scratch.Add "pages" (.Site.RegularPages) }}
+  {{- end }}
+
+  <body class="{{- delimit ( $.Scratch.Get "bodyClass" ) " " }}" itemscope itemtype="http://schema.org/WebPage">
+    {{- partial "header.html" .}}
+    {{- if and (.Site.Params.sidebar) (or (ne .Params.sidebar "none") (ne .Params.sidebar "custom"))}}
+        {{- partial "sidebar.html" . }}
+    {{end}}
+    {{ block "content" . }}{{ end }}
+    {{- partial "footer.html" . }}
+    {{- partial "script.html" . }}
   </body>
 </html>

@@ -26,6 +26,7 @@ Below I've outlined the process I took to set up my blogging site.
 2. An Azure account.  A free-tier Azure account can be set up [here](https://azure.microsoft.com/en-us/free/).
 3. A GitHub account.  Free-tier is all that's required, and gives private repositories and up to 3000 minutes of pipeline runtime per month.  An account can be set up [here](https://github.com/).
 3. A code editor.  My personal preference is [Atom](https://atom.io/), but any similar app will work.
+4. A registered domain name.  My domain was purchased through [Google](https://domains.google.com/m/registrar?nfg), but any domain provider that allows CNAME configuration will work.
 
 ## Steps
 
@@ -35,4 +36,96 @@ Initialization of the Hugo site is simple.  A walkthrough can be found in the Hu
 
 For now, the Ananke theme will work fine.  Themes can be changed at any time, but changing to a new theme may break any layout customizations you have made.
 
+After creating this site, create a git repository in GitHub and push the code to the new repository.
+
 ### 2. Set up static website in Azure Blob Storage
+
+After setting up your Azure account, create an Azure storage account and configure it with a static website.  This can be done with the following commands.
+
+  ```bash
+  set resourceGroupName=personalblog
+  set storageName=<blog_name>
+  set location=centralus
+  az login
+  az group create --name %resourceGroupName% --location %location%
+  call az extension add --name storage-preview
+  call az storage account create -n %storageName% -g %resourceGroupName% -l %location% --sku Standard_LRS --kind StorageV2
+  call az storage blob service-properties update --account-name %storageName% --static-website --404-document 404.html --index-document index.html
+  ```
+
+Running these commands logs you into Azure, creates a new Azure resource group, an Azure Storage Account, and configures the storage account to serve a static website.
+
+### 3. Set up GitHub Actions pipeline
+
+To automatically build and deploy changes to your blog, we next need to set up CI/CD pipelines to process those changes.  GitHub now provides a pipeline tool called GitHub Actions that take YAML-formatted pipeline files as inputs for build and release pipelines.
+
+Example pipelines for builds and deployments can be found below.  These example pipelines should be put under the `.github/workflows/` directory of your repository.
+
+Build pipeline, to be used for every branch except master.
+  ```yaml
+  name: CI
+
+  on:
+    push:
+      branches-ignore:
+        - master
+
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+
+      steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: Hugo setup
+        uses: peaceiris/actions-hugo@v2.3.0
+      - name: Build the Hugo project
+        run: hugo -D
+  ```
+
+Deployment pipeline, to be used exclusively for the master branch.  The `<storage_name>` and `<azure_storage_secret>` variables should be replaced with your Azure account's storage blob name and storage account key respectively.
+
+The storage access key can be found in the Azure portal, inside the Keys section of your storage account.  This key should __not__ be committed to your repository.  Instead, it should be added to the GitHub secret store and referenced by name.
+  ```yaml
+  name: CD
+
+  on:
+    push:
+      branches:
+        - master
+
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+
+      steps:
+      - uses: actions/checkout@v1
+      - name: submodule checkout
+        run: git submodule update --init --recursive
+      - name: Hugo setup
+        uses: peaceiris/actions-hugo@v2.3.0
+      - name: Build the Hugo project
+        run: hugo
+      - name: Upload to blob storage
+        run: az storage blob upload-batch --destination '<storage_name>' --source public/ --account-name <storage_account_name> --account-key <azure_storage_secret>
+  ```
+
+After committing these pipelines to master, your Hugo site should be automatically built and deployed to the new static website storage account.
+
+### 4. Configure Azure CDN and Domain CNAME
+
+Once your site is deployed to the Azure storage account, verify that you are able to access it through the static website URL.  This URL can be found in the Static Website section of your storage account when viewed through the portal.  After verifying the site loads, note the hostname URL.
+
+In the same Azure Portal, visit the resource group created in the previous step.  Add a new CDN profile to be used for the static site to the resource group.  In this new CDN profile add an endpoint with the following settings:
+
+  * __Origin Type:__ Custom Origin
+  * __Origin Hostname:__ Hostname URL recorded from the storage account
+  * __Origin Host Header:__ Hostname URL, the same as above
+  * __Origin Path:__ Leave this section blank
+
+With the CDN profile created, we can now set up a custom domain to capture traffic for the site.  First, create a CNAME pointed at the custom domain of your choice.  For example, this site `coltonherrod.com` has a CNAME of `blog.coltonherrod.com`.
+
+After creating the CNAME, visit the Azure CDN Endpoint console and select the Custom Domains section.  Click the button to add a Custom Domain, set the Custom Hostname to the CNAME created previously.  This step may take some time, especially if the site is configured to use HTTPS.
+
+After this process is complete,

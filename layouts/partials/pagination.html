@@ -1,27 +1,27 @@
-{{ with $.Paginator }}
-{{ if gt .TotalPages 1 }}
-<ul class="pagination">
-  {{ with .Prev }}
-  <li class="page-item">
-    <a class="page-link" href="{{ .URL }}">
-      {{ partial "icon.html" (dict "ctx" $ "name" "arrow-left") }}
-    </a>
-  </li>
-  {{ end }}
-  {{ range .Pagers }}
-  <li class="page-item{{ if eq .PageNumber $.Paginator.PageNumber }} active{{ end }}">
-    <a class="page-link" href="{{ .URL }}">
-      {{ .PageNumber }}
-    </a>
-  </li>
-  {{ end }}
-  {{ with .Next }}
-  <li class="page-item">
-    <a class="page-link" href="{{ .URL }}">
-      {{ partial "icon.html" (dict "ctx" $ "name" "arrow-right") }}
-    </a>
-  </li>
-  {{ end }}
-</ul>
-{{ end }}
-{{ end }}
+{{- $paginator := .Paginate $.Scratch.Get "pages" -}}
+<nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+    <ul class="pager pull-left">
+      {{- with $paginator.Prev -}}
+      <li class="prev">
+        <a href="{{ .URL}}">
+          <i class="icon icon-angle-left"></i>
+          {{ T "prevPage" }}
+        </a>
+      </li>
+      {{- end -}}
+
+      {{- with $paginator.Next -}}
+      <li class="next">
+        <a href="{{ .URL }}">
+          <i class="icon icon-angle-right"></i>
+          {{T "nextPage"}}
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+    <div class="total-article bar-right">
+      {{ $paginator.TotalNumberOfElements }}
+    </div>
+  </div>
+</nav>
