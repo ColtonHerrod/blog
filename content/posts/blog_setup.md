@@ -31,6 +31,8 @@ Below I've outlined the process I took to set up my blogging site.
 
 ### 1. Set up initial site
 
-Initialization of the Hugo site is simple.
+Initialization of the Hugo site is simple.  A walkthrough can be found in the Hugo site [here](https://gohugo.io/getting-started/quick-start/).  Different themes can be used in place of Ananke, and require different sets of parameters.  For example, this site uses the [m10c](https://themes.gohugo.io/hugo-theme-m10c/) theme.
+
+For now, the Ananke theme will work fine.  Themes can be changed at any time, but changing to a new theme may break any layout customizations you have made.
 
 ### 2. Set up static website in Azure Blob Storage
