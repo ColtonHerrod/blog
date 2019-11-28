@@ -8,10 +8,10 @@ theme = "m10c"
   description = "Thoughts and experiences from a DevOps consultant."
   [[params.social]]
     name = "github"
-    url = "https://github.com/gohugoio"
+    url = "https://github.com/ColtonHerrod"
   [[params.social]]
-    name = "twitter"
-    url = "https://twitter.com/gohugoio"
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/colton-herrod-76a68693/"
 
 
 [Menus]

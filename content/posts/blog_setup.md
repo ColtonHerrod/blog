@@ -2,6 +2,14 @@
 title: "Setting up a Blog with Hugo and Azure"
 date: 2019-11-27T09:25:40-06:00
 draft: true
+summary: >
+  Walkthrough of how to set up a blog site similar to this.  The walkthrough covers:
+
+    * Required prerequisites.
+    * How to set up the Hugo site.
+    * How to set up Azure Storage Static Site.
+    * How to set up the Azure CDN and domain CNAME.
+    * Setup of GitHub Actions pipelines to build and deploy the site automatically.
 ---
 
 ## Overview
@@ -23,6 +31,6 @@ Below I've outlined the process I took to set up my blogging site.
 
 ### 1. Set up initial site
 
-Initialization of the Hugo site is simple.  
+Initialization of the Hugo site is simple.
 
 ### 2. Set up static website in Azure Blob Storage
