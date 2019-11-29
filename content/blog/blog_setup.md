@@ -49,9 +49,9 @@ After setting up your Azure account, create an Azure storage account and configu
   set location=centralus
   az login
   az group create --name %resourceGroupName% --location %location%
-  call az extension add --name storage-preview
-  call az storage account create -n %storageName% -g %resourceGroupName% -l %location% --sku Standard_LRS --kind StorageV2
-  call az storage blob service-properties update --account-name %storageName% --static-website --404-document 404.html --index-document index.html
+  az extension add --name storage-preview
+  az storage account create -n %storageName% -g %resourceGroupName% -l %location% --sku Standard_LRS --kind StorageV2
+  az storage blob service-properties update --account-name %storageName% --static-website --404-document 404.html --index-document index.html
   ```
 
 Running these commands logs you into Azure, creates a new Azure resource group, an Azure Storage Account, and configures the storage account to serve a static website.
@@ -88,6 +88,8 @@ Build pipeline, to be used for every branch except master.
 Deployment pipeline, to be used exclusively for the master branch.  The `<storage_name>` and `<azure_storage_secret>` variables should be replaced with your Azure account's storage blob name and storage account key respectively.
 
 The storage access key can be found in the Azure portal, inside the Keys section of your storage account.  This key should __not__ be committed to your repository.  Instead, it should be added to the GitHub secret store and referenced by name.
+
+Build pipeline used for the master branch.
   ```yaml
   name: CD
 
