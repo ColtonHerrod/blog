@@ -5,4 +5,3 @@ menu:
   - sidebar
 weight: -270
 ---
-> Automate everything. - DevOps motto
