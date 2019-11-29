@@ -9,8 +9,8 @@ weight: -200
 slug: about
 ---
 
-Colton Herrod is a DevOps consultant based in Dallas, Texas.  He is a specialist in AWS cloud technologies, focused on DevOps, workload automation, and data center migration.
+I am a DevOps consultant based in Dallas, Texas.  I specialize in AWS cloud technologies, with a primary focus on DevOps, workload automation, and data center migration.
 
-He has consulted in the AWS space for 4.5 years.
+I started my career as a software enginner at Pariveda Solutions, where I have been for nearly five years.
 
-Colton's free time is spent reading and writing sci-fi and fantasy, hiking, and camping.
+My free time is spent reading and writing sci-fi and fantasy, hiking, and camping.
