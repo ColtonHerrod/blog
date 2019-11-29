@@ -2,6 +2,7 @@
 title: "Hello World"
 date: 2019-11-26T16:10:05-06:00
 draft: false
+tags: ["hello", "init"]
 summary: Beginning a blog,   `print "Hello World!"`
 ---
 
