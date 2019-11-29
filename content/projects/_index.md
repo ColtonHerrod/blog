@@ -1,0 +1,14 @@
+---
+title: Projects
+linkTitle: Projects
+menu:
+  main:
+  sidebar:
+    identifier: projects
+weight: -210
+slug: projects
+---
+
+## Open Source Projects
+
+* [___automated-world___](https://github.com/ColtonHerrod/automated-world): CI/CD and automation templates for various automation servers
