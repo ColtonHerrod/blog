@@ -33,11 +33,19 @@ Below I've outlined the process I took to set up my blogging site.
 
 ### 1. Set up initial site
 
-Initialization of the Hugo site is simple.  A walkthrough can be found in the Hugo site [here](https://gohugo.io/getting-started/quick-start/).  Different themes can be used in place of Ananke, and require different sets of parameters.  For example, this site uses the [m10c](https://themes.gohugo.io/hugo-theme-m10c/) theme.
+Before creating this site, create a new git repository in your GitHub account.
+
+Initialization of the Hugo site is simple.  A walkthrough can be found in the Hugo site [here](https://gohugo.io/getting-started/quick-start/).  Different themes can be used in place of Ananke, and require different sets of parameters.  For example, this site uses the [minimo](https://minimo.netlify.com/) theme.
 
 For now, the Ananke theme will work fine.  Themes can be changed at any time, but changing to a new theme may break any layout customizations you have made.
 
-After creating this site, create a git repository in GitHub and push the code to the new repository.
+After initializing the site, set the GitHub repository previously created as the origin and push the initialized site to the repo.  The following commands will perform this operation.
+
+```bash
+  git commit -m "first commit"
+  git remote add origin https://github.com/<profile_name>/<repo_name>.git
+  git push -u origin master
+```
 
 ### 2. Set up static website in Azure Blob Storage
 
@@ -127,8 +135,10 @@ In the same Azure Portal, visit the resource group created in the previous step.
   * __Origin Host Header:__ Hostname URL, the same as above
   * __Origin Path:__ Leave this section blank
 
-With the CDN profile created, we can now set up a custom domain to capture traffic for the site.  First, create a CNAME pointed at the custom domain of your choice.  For example, this site `coltonherrod.com` has a CNAME of `blog.coltonherrod.com`.
+With the CDN profile created, we can now set up a custom domain to capture traffic for the site.  First, create a CNAME pointed at the Azure CDN Endpoint that was previously created..
 
-After creating the CNAME, visit the Azure CDN Endpoint console and select the Custom Domains section.  Click the button to add a Custom Domain, set the Custom Hostname to the CNAME created previously.  This step may take some time, especially if the site is configured to use HTTPS.
+After creating the CNAME, visit the Azure CDN Endpoint console and select the Custom Domains section.  Click the button to add a Custom Domain, set the Custom Hostname to the CNAME created previously.  If you wish your site to use HTTPS, which is highly recommended, select your custom domain and set HTTPS to __On__.  This will require you to input your CNAME from the previous step.
 
-After this process is complete,
+Azure will then validate that your CNAME is pointed at the CDN endpoint.  If the CNAME is configured correctly, Azure will automatically validate your domain and provision the certificate across the CDN network, which may take up to 6 hours.
+
+After this process is complete, validate that you are able to access your site over your domain name as expected.
