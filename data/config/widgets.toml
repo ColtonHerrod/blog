@@ -2,7 +2,7 @@
 [about]
 title = ""                            # default: .Site.Title
 description = ""                      # default: .Site.Params.info.description
-logo = "headshotcircle.png"             # default: "/images/logo.png"
+logo = "headshotcircle.jpg"             # default: "/images/logo.png"
 
 # Breadcrumbs Widget config
 [breadcrumbs]
