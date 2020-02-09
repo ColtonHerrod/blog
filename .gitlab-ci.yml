@@ -20,12 +20,12 @@ test:
     - master
 
 build:
-  stage: build
   image: registry.gitlab.com/pages/hugo:latest
+  stage: build
   artifacts:
     paths:
-      - build/
-    script:
+      - public/
+    scripts:
       - hugo
     only:
       - master
@@ -36,6 +36,6 @@ deploy:
   dependencies:
     - build
   script:
-    - az storage blob upload-batch --destination '$web' --source build/ --account-name personalblog --account-key $AZURE_STORAGE_KEY
+    - az storage blob upload-batch --destination '$web' --source public/ --account-name personalblog --account-key $AZURE_STORAGE_KEY
   only:
     - master
