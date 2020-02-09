@@ -1,7 +1,7 @@
 ---
 title: "Deploying Hugo Blog using GitLab Pipelines"
 date: 2020-02-09T13:06:51-06:00
-draft: true
+draft: false
 tags: ["hugo", "azure", "gitlab", "devops", "automation"]
 summary: >
   Walkthrough of how to deploy a blog site similar to this using GitLab.  The walkthrough covers:
@@ -39,11 +39,13 @@ Cons:
   Pros:
     - Integrates directly with Docker registry for easy use of containers.
     - Simple syntax makes it easy to pick up.
+    - Separate stages make it easy to run different steps in different Docker contexts.
+    - Built-in dashboards allow visibility into builds.  Note that this is free for public projects, but requires a paid plan for private projects.
 
   Cons:
-    - GitHub Actions is simple to pick up, but does not yet provide a full integrated system.
-    - Syntax is wordier and a bit unwieldy.
-    - Still an early-stage system, and may be premature for productionalized workloads.
+    - GitLab is a less commonly used system.
+    - Some features require a paid plan.
+    - Many simple projects don't need the full GitLab feature set.
 
 ## Prerequisites
 
