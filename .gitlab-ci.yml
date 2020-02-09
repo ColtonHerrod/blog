@@ -15,6 +15,7 @@ test:
     - master
 
 build:
+  stage: build
   image: registry.gitlab.com/pages/hugo:latest
   script:
     - hugo
@@ -22,6 +23,7 @@ build:
     - master
 
 deploy:
+  stage: deploy
   image: microsoft/azure-cli
   dependencies:
     - build
