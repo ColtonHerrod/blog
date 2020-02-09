@@ -7,6 +7,11 @@
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
+stages:
+  - test
+  - build
+  - deploy
+
 test:
   image: registry.gitlab.com/pages/hugo:latest
   script:
@@ -15,10 +20,13 @@ test:
     - master
 
 build:
-  stage: build
   image: registry.gitlab.com/pages/hugo:latest
+  stage: build
   script:
     - hugo
+  artifacts:
+    paths:
+      - public/
   only:
     - master
 
