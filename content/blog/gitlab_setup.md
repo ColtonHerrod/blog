@@ -63,7 +63,7 @@ The initial site setup is documented [here] ( {{< ref "blog_setup.md" >}}).  Thi
 
 Set up your initial Hugo site and Azure infrastructure by following steps 1 and 2 in my previous article, found [here] ( {{< ref "blog_setup.md" >}}).
 
-### 2. Set up GitHub Actions pipeline
+### 2. Set up GitLab Actions pipeline
 
 To automatically build and deploy changes to your blog, we next need to set up CI/CD pipelines to process those changes.  GitLab provides a robust pipeline tool that takes YAML-formatted pipeline files as inputs for build and release pipelines.
 
