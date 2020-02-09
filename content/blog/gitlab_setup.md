@@ -49,7 +49,7 @@ Cons:
 
 ## Prerequisites
 
-The initial site setup is documented [here] ( {{< ref "blog_setup.md" >}}).  This article will not cover the inital Azure and Hugo site setup again for the sake of brevity.  Prerequisites for the site and GitLab pipelines are documented here.
+The initial site setup is documented [here] ({{< ref "blog_setup.md" >}}).  This article will not cover the inital Azure and Hugo site setup again for the sake of brevity.  Prerequisites for the site and GitLab pipelines are documented here.
 
 1. Hugo installed on your local machine. Setting up and maintaining the site requires installing Hugo locally.  A full walkthrough can be found at the Hugo site [here](https://gohugo.io/getting-started/installing/).
 2. An Azure account.  A free-tier Azure account can be set up [here](https://azure.microsoft.com/en-us/free/).
@@ -61,7 +61,7 @@ The initial site setup is documented [here] ( {{< ref "blog_setup.md" >}}).  Thi
 
 ### 1. Set up initial site
 
-Set up your initial Hugo site and Azure infrastructure by following steps 1 and 2 in my previous article, found [here] ( {{< ref "blog_setup.md" >}}).
+Set up your initial Hugo site and Azure infrastructure by following steps 1 and 2 in my previous article, found [here] ({{< ref "blog_setup.md" >}}).
 
 ### 2. Set up GitLab Actions pipeline
 
@@ -114,4 +114,4 @@ deploy:
 ```
 ### 4. Configure Azure CDN and Domain CNAME
 
-Configure your Azure CDN and CNAME, as described in step 4 in my previous article, found [here] ( {{< ref "blog_setup.md" >}}).
+Configure your Azure CDN and CNAME, as described in step 4 in my previous article, found [here] ({{< ref "blog_setup.md" >}}).
