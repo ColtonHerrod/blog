@@ -22,13 +22,13 @@ test:
 build:
   image: registry.gitlab.com/pages/hugo:latest
   stage: build
+  scripts:
+    - hugo
   artifacts:
     paths:
       - public/
-    scripts:
-      - hugo
-    only:
-      - master
+  only:
+    - master
 
 deploy:
   stage: deploy
