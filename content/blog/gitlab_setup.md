@@ -36,16 +36,16 @@ Cons:
 
 ### GitLab CI/CD
 
-  Pros:
-    - Integrates directly with Docker registry for easy use of containers.
-    - Simple syntax makes it easy to pick up.
-    - Separate stages make it easy to run different steps in different Docker contexts.
-    - Built-in dashboards allow visibility into builds.  Note that this is free for public projects, but requires a paid plan for private projects.
+Pros:
+  - Integrates directly with Docker registry for easy use of containers.
+  - Simple syntax makes it easy to pick up.
+  - Separate stages make it easy to run different steps in different Docker contexts.
+  - Built-in dashboards allow visibility into builds.  Note that this is free for public projects, but requires a paid plan for private projects.
 
-  Cons:
-    - GitLab is a less commonly used system.
-    - Some features require a paid plan.
-    - Many simple projects don't need the full GitLab feature set.
+Cons:
+  - GitLab is a less commonly used system.
+  - Some features require a paid plan.
+  - Many simple projects don't need the full GitLab feature set.
 
 ## Prerequisites
 
