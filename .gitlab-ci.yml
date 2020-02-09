@@ -22,7 +22,7 @@ test:
 build:
   image: registry.gitlab.com/pages/hugo:latest
   stage: build
-  scripts:
+  script:
     - hugo
   artifacts:
     paths:
