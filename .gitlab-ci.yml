@@ -11,6 +11,14 @@ stages:
   - test
   - build
   - deploy
+  - leaks
+
+leaks:
+  image:
+    name: "zricethezav/gitleaks"
+    entrypoint: [""]
+  script:
+    - gitleaks -v --repo-path=./
 
 test:
   image: registry.gitlab.com/pages/hugo:latest
@@ -35,6 +43,7 @@ deploy:
   image: microsoft/azure-cli
   dependencies:
     - build
+    - leaks
   script:
     - az storage blob upload-batch --destination '$web' --source public/ --account-name personalblog --account-key $AZURE_STORAGE_KEY
   only:
