@@ -15,6 +15,7 @@ stages:
 test:
   image: registry.gitlab.com/pages/hugo:latest
   script:
+    - gitleaks -v --repo-path=./
     - hugo
   except:
     - master
@@ -23,6 +24,7 @@ build:
   image: registry.gitlab.com/pages/hugo:latest
   stage: build
   script:
+    - gitleaks -v --repo-path=./
     - hugo
   artifacts:
     paths:
