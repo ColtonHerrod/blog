@@ -1,13 +1,10 @@
----
-title: About
-linkTitle: About
-menu:
-  main:
-  sidebar:
-    identifier: about
-weight: -200
-slug: about
----
++++
+title = "About Me"
+author = "Colton Herrod"
+date = "2020-12-27"
+layout = "about"
++++
+
 
 I am a DevOps engineer based in Norman, Oklahoma.  I specialize in AWS cloud technologies, with a primary focus on developer-driven infrastructure, workload automation, and data center migration.
 

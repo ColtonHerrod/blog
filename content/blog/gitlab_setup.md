@@ -3,6 +3,7 @@ title: "Deploying Hugo Blog using GitLab Pipelines"
 date: 2020-02-09T13:06:51-06:00
 draft: false
 tags: ["hugo", "azure", "gitlab", "devops", "automation"]
+categories: ["azure", "automation", "gitlab"]
 summary: >
   Walkthrough of how to deploy a blog site similar to this using GitLab.  The walkthrough covers:
 

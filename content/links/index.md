@@ -1,9 +1,5 @@
 ---
 title: Links
-menu:
-  - main
-  - sidebar
-weight: -205
 ---
 ### Cloud/DevOps Tools
 

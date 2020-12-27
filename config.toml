@@ -1,146 +1,381 @@
-baseURL = "https://blog.coltonherrod.com"
-languageCode = "en-us"
-title = "Colton Herrod"
-# for smart copyright line, leave this blank and check [params.copyright]
-copyright = ""
+# For a description of these parameters, please visit the theme wiki.
+# https://github.com/pacollins/hugo-future-imperfect-slim/wiki/config.toml
+baseurl                 = "https://blog.coltonherrod.com"
+DefaultContentLanguage  = "en"
+title                   = "Colton Herrod"
+theme                   = "hugo-future-imperfect-slim"
+paginate                = 5
+disqusShortname         = ""
+googleAnalytics         = ""
+pluralizeListTitles     = false
+disableLanguages        = []
 
-theme = "minimo"
+[markup.goldmark.renderer]
+  unsafe                = true
 
-disqusShortname = ""
-googleAnalytics = ""
+[outputs]
+  home                  = ["html", "json", "rss"]
 
-Paginate = 5
-preserveTaxonomyNames = true
+[params]
+  enableCDN             = false
+  cssFiles              = ["default"]
+  jsFiles               = ["default"]
+  highlightjs           = true
+  highlightjsTheme      = ""
+  highlightjsLang       = []
+  viewMorePostsLink     = "/blog/"
+  readingTime           = true
+  imageStretch          = ""
+  removeBlur            = false
+  socialShare           = ["linkedin","email"]
+  hideEmptyStats        = false
 
-enableRobotsTXT = true # generate robots.txt
+  [params.meta]
+    description         = "A theme by HTML5 UP, ported by Julio Pescador. Slimmed and enhanced by Patrick Collins. Multilingual by StatnMap. Powered by Hugo."
+    author              = "HTML5UP and Hugo"
+    favicon             = false
+    svg                 = true
+    faviconVersion      = "1"
+    msColor             = "#ffffff"
+    iOSColor            = "#ffffff"
 
-# Syntax Highlighting ( https://gohugo.io/content-management/syntax-highlighting/ )
-pygmentsCodefences = true
+  [params.header]
+    navbarTitle         = "DevOps and Automation"
+    dynamicTitles       = true
+    searchMenu          = false
+    shareMenu           = true
+    languageMenu        = false
 
-enableEmoji = true
+  [params.intro]
+    header                = "Stories and experiences of a DevOps engineer"
+    # paragraph             = "Another fine, responsive site template by <a href='http://html5up.net'>HTML5 UP</a>."
+    rssIntro              = true
+    socialIntro           = true
+    hideWhenSingleColumn  = false
+    alwaysOnHomepage      = false
 
-# Missing translations will default to this content language
-defaultContentLanguage = "en"
+    [params.intro.pic]
+      src                 = "headshotcircle.jpg"
+      shape               = "circle"
+      width               = ""
+      alt                 = "Personal headshot"
 
-[params.info]
-description = "Stories and experiences of a DevOps consultant."
-title404 = "Nothing's here!"
+  [params.sidebar]
+    about               = "I am a professional DevOps engineer with six years of AWS experience."
+    postAmount          = 5
+    categories          = true
+    categoriesByCount   = true
 
-[params.assets]
-favicon = "favicon.ico"
-customCSS = ["css/custom.css"]
-customJS = ["js/custom.js"]
-gopher = "" # used in 404 template ( Generator: https://gopherize.me )
+  [params.footer]
+    rssFooter           = true
+    socialFooter        = false
 
-[params.copyright]
-prefix = ""
-holder = "Colton Herrod"
-startYear = "2019"
-suffix = ""
+  [params.staticman]
+    enabled             = false
+    api                 = ""  # No Trailing Slash
+    gitProvider         = ""
+    username            = ""
+    repo                = ""
+    branch              = ""
 
-[params.settings]
-# date & time format: https://golang.org/pkg/time/
-dateFormat = "2006, Jan 02"
-listDateFormat = "2006, Jan 02"
-archiveDateFormat = "Jan 02"
-hideEntryNavigation = ["page"] # boolean / array of sections
-hideEntryMeta = ["page"] # boolean / array of sections
-showReadingTime = true
-showWordCount = true
-showLastmod = true
-taxonomyCloudShuffle = true
-accentColor = "#ffcd00"
-hideMainMenu = false
-rtl = false
+    [params.staticman.recaptcha]
+      siteKey           = ""
+      encryptedKey      = ""
 
-[params.sidebar]
-enable = true
+[menu]
 
-[params.widgets]
-header = ["breadcrumbs"]
-homepage = ["recent_posts"]
-sidebar = ["about","taxonomy_cloud"]
-footer = ["social_menu"]
+  [[menu.main]]
+    name              = "Home"
+    identifier        = "home"
+    url               = "/"
+    pre               = "<i class='fa fa-home'></i>"
+    weight            = 1
 
-[params.opengraph.facebook]
-admins = [] # array of Facebook IDs
-appID = ""
-pageID = ""
+  [[menu.main]]
+    name              = "About"
+    identifier        = "about"
+    url               = "/about/"
+    pre               = "<i class='far fa-id-card'></i>"
+    weight            = 2
 
-[params.opengraph.twitter]
-page = "" # Twitter page username
+  [[menu.main]]
+    name              = "Categories"
+    identifier        = "categories"
+    url               = "/categories/"
+    pre               = "<i class='fas fa-sitemap'></i>"
+    weight            = 3
 
-[params.seo]
-# Title Separator: - – — · • * ⋆ | ~ « » < >
-titleSeparator = "•"
+  [[menu.main]]
+    name              = "Projects"
+    identifier        = "projects"
+    url               = "/projects/"
+    pre               = "<i class='fas fa-terminal'></i>"
+    weight            = 4
 
-[params.social]
-codepen = "ColtonHerrod"
-email = "coltonherrod@gmail.com"
-facebook = ""
-github = "ColtonHerrod"
-gitlab = "coltonh"
-instagram = ""
-linkedin = "ColtonHerrod"
-twitter = ""
-telegram = ""
-google_scholar = ""
-youtube = ""
+  [[menu.main]]
+    name              = "Links"
+    identifier        = "links"
+    url               = "/links/"
+    pre               = "<i class='fas fa-link'></i>"
+    weight            = 5
 
-[params.comments]
-enable = false
+  # [[menu.main]]
+  #   name              = "Contact"
+  #   identifier        = "contact"
+  #   url               = "/contact/"
+  #   pre               = "<i class='far fa-envelope'></i>"
+  #   weight            = 6
 
-# Isso: https://posativ.org/isso/
-[params.comments.isso]
-enable = false
-scriptSrc = "" # "https://isso.example.com/js/embed.min.js"
-dataAttrs = "" # "data-isso='https://isso.example.com' data-isso-require-author='true'"
+  # [[menu.main]]
+  #   name              = "Brewing"
+  #   url               = "https://brewing.coltonherrod.com"
+  #   pre               = "<i class='fas fa-beer'></i>"
+  #   weight            = 10
 
-[params.comments.staticman]
-enable = false
-apiEndpoint = "https://api.staticman.net/v2/entry"
-maxDepth = 2
-username = ""
-repository = ""
+[Languages]
 
-# Utterances: https://utteranc.es
-[params.comments.utterances]
-enable = false
-issueTerm = "pathname" # pathname / url / title
+  [Languages.en]
+    LanguageCode        = "en"
+    LanguageName        = "English"
+    weight              = 1
 
-[params.comments.utterances.github]
-username = ""
-repository = ""
+  [Languages.fr]
+    LanguageCode        = "fr"
+    LanguageName        = "Français"
+    title               = "Hugo Future Imperfect Slim en français"
+    description         = "Un thème par HTML5 UP, porté par Julio Pescador. Simplifié et amélioré par Patrick Collins. Multilingue par StatnMap. Propulsé par Hugo."
+    weight              = 2
 
-[params.search]
-client = "fuse" # algolia / fuse / lunr
+    [[Languages.fr.menu.main]]
+      name              = "Accueil"
+      identifier        = "home"
+      url               = "/"
+      pre               = "<i class='fas fa-home'></i>"
+      weight            = 1
 
-[params.search.algolia]
-appId = ""
-indexName = ""
-searchApiKey = ""
+    [[Languages.fr.menu.main]]
+      name              = "About"
+      identifier        = "about"
+      url               = "/about/"
+      pre               = "<i class='far fa-id-card'></i>"
+      weight            = 2
 
-[taxonomies]
-author = "authors"
-category = "categories"
-series = "series"
-tag = "tags"
+    [[Languages.fr.menu.main]]
+      name              = "Blog"
+      identifier        = "blog"
+      url               = "/blog/"
+      pre               = "<i class='far fa-newspaper'></i>"
+      weight            = 3
 
-[permalinks]
-page = "/:slug/"
+    [[Languages.fr.menu.main]]
+      name              = "Catégories"
+      identifier        = "categories"
+      url               = "/categories/"
+      pre               = "<i class='fas fa-sitemap'></i>"
+      weight            = 5
 
-# [[menu.main]]
-# name = "Repo"
-# weight = -10
-# identifier = "repository"
-# url = "https://github.com/MunifTanjim/minimo"
+    [[Languages.fr.menu.main]]
+      name              = "Contact"
+      identifier        = "contact"
+      url               = "/contact/"
+      pre               = "<i class='far fa-envelope'></i>"
+      weight            = 6
 
-[blackfriday]
-hrefTargetBlank = true
+  [Languages.pl]
+    LanguageCode        = "pl"
+    LanguageName        = "Polski"
+    title               = "Hugo Future Imperfect Slim po polsku"
+    description         = "Motyw HTML5 UP, przeniesiony przez Julio Pescadora i wzbogacony przez Patricka Collinsa. Wielojęzyczny przez StatnMap. Zasilany przez Hugo."
+    weight              = 2
 
-[languages]
-# edit this block for your own language
-[languages.en]
-lang = "en"
-languageName = "English"
-weight = 1
+    [[Languages.pl.menu.main]]
+      name              = "Home"
+      identifier        = "home"
+      url               = "/"
+      pre               = "<i class='fas fa-home'></i>"
+      weight            = 1
+
+    [[Languages.pl.menu.main]]
+      name              = "O mnie"
+      identifier        = "about"
+      url               = "/about/"
+      pre               = "<i class='far fa-id-card'></i>"
+      weight            = 2
+
+    [[Languages.pl.menu.main]]
+      name              = "Blog"
+      identifier        = "blog"
+      url               = "/blog/"
+      pre               = "<i class='far fa-newspaper'></i>"
+      weight            = 3
+
+    [[Languages.pl.menu.main]]
+      name              = "Kategorie"
+      identifier        = "categories"
+      url               = "/categories/"
+      pre               = "<i class='fas fa-sitemap'></i>"
+      weight            = 5
+
+    [[Languages.pl.menu.main]]
+      name              = "Kontakt"
+      identifier        = "contact"
+      url               = "/contact/"
+      pre               = "<i class='far fa-envelope'></i>"
+      weight            = 6
+
+  [Languages.pt]
+    LanguageCode        = "pt"
+    LanguageName        = "Português"
+    title               = "Hugo Future Imperfect Slim em português"
+    description         = "Um tema do HTML5 UP, portado por Julio Pescadora e reduzido por Patrick Collins. Multilíngue por StatnMap. Feito com Hugo."
+    weight              = 4
+
+    [[Languages.pt.menu.main]]
+      name              = "Início"
+      identifier        = "home"
+      url               = "/"
+      pre               = "<i class='fas fa-home'></i>"
+      weight            = 1
+
+    [[Languages.pt.menu.main]]
+      name              = "Sobre"
+      identifier        = "about"
+      url               = "/about/"
+      pre               = "<i class='far fa-id-card'></i>"
+      weight            = 2
+
+    [[Languages.pt.menu.main]]
+      name              = "Blog"
+      identifier        = "blog"
+      url               = "/blog/"
+      pre               = "<i class='far fa-newspaper'></i>"
+      weight            = 3
+
+    [[Languages.pt.menu.main]]
+      name              = "Categorias"
+      identifier        = "categories"
+      url               = "/categories/"
+      pre               = "<i class='fas fa-sitemap'></i>"
+      weight            = 5
+
+    [[Languages.pt.menu.main]]
+      name              = "Contato"
+      identifier        = "contact"
+      url               = "/contact/"
+      pre               = "<i class='far fa-envelope'></i>"
+      weight            = 6
+
+  [Languages.de]
+    LanguageCode        = "de"
+    LanguageName        = "Deutsche"
+    weight              = 5
+
+  [Languages.es]
+    LanguageCode        = "es"
+    LanguageName        = "Española"
+    weight              = 6
+
+  [Languages.zh-CN]
+    LanguageCode        = "zh-CN"
+    LanguageName        = "中文"
+    weight              = 7
+
+  [Languages.zh-TW]
+    LanguageCode        = "zh-TW"
+    LanguageName        = "中文"
+    weight              = 8
+
+  [Languages.ja]
+    LanguageCode        = "ja"
+    LanguageName        = "日本語"
+    weight              = 9
+
+  [Languages.nl]
+    LanguageCode        = "nl"
+    LanguageName        = "Nederlands"
+    weight              = 10
+
+    [[Languages.nl.menu.main]]
+      name              = "Home"
+      identifier        = "home"
+      url               = "/"
+      pre               = "<i class='fas fa-home'></i>"
+      weight            = 1
+
+    [[Languages.nl.menu.main]]
+      name              = "Over"
+      identifier        = "about"
+      url               = "/about/"
+      pre               = "<i class='far fa-id-card'></i>"
+      weight            = 2
+
+    [[Languages.nl.menu.main]]
+      name              = "Blog"
+      identifier        = "blog"
+      url               = "/blog/"
+      pre               = "<i class='far fa-newspaper'></i>"
+      weight            = 3
+
+    [[Languages.nl.menu.main]]
+      name              = "Categorieën"
+      identifier        = "categories"
+      url               = "/categories/"
+      pre               = "<i class='fas fa-sitemap'></i>"
+      weight            = 5
+
+    [[Languages.nl.menu.main]]
+      name              = "Contact"
+      identifier        = "contact"
+      url               = "/contact/"
+      pre               = "<i class='far fa-envelope'></i>"
+      weight            = 6
+
+[social]
+  # Coding Communities
+  github                = "ColtonHerrod"
+  gitlab                = "coltonh"
+  stackoverflow         = "" # User Number
+  bitbucket             = ""
+  jsfiddle              = ""
+  codepen               = ""
+  # Visual Art Communities
+  deviantart            = ""
+  flickr                = ""
+  behance               = ""
+  dribbble              = ""
+  # Publishing Communities
+  wordpress             = ""
+  medium                = ""
+  # Professional/Business Oriented Communities
+  linkedin              = "https://www.linkedin.com/in/colton-herrod-76a68693/"
+  linkedin_company      = ""
+  foursquare            = ""
+  xing                  = ""
+  slideshare            = ""
+  # Social Networks
+  facebook              = ""
+  googleplus            = ""
+  reddit                = ""
+  quora                 = ""
+  youtube               = ""
+  vimeo                 = ""
+  whatsapp              = "" # WhatsApp Number
+    # WeChat and QQ need testing.
+    wechat              = ""
+    qq                  = "" # User ID Number
+  instagram             = ""
+  tumblr                = ""
+  twitter               = ""
+  strava                = ""
+  skype                 = ""
+  snapchat              = ""
+  pinterest             = ""
+  telegram              = ""
+  vine                  = ""
+  googlescholar         = ""
+  orcid                 = ""
+  researchgate          = ""
+  keybase               = ""
+  mastodon              = ""
+  # Email
+  email                 = "coltonherrod@gmail.com"
