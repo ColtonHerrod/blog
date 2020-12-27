@@ -1,11 +1,6 @@
 ---
 title: Projects
 linkTitle: Projects
-menu:
-  main:
-  sidebar:
-    identifier: projects
-weight: -210
 slug: projects
 ---
 

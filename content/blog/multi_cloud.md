@@ -3,6 +3,7 @@ title: "Should your organization use multiple cloud platforms?"
 date: 2020-02-12T20:58:40-06:00
 draft: false
 tags: ["aws", "azure", "gcp", "cloud", "multi-cloud", "architecture"]
+categories: ["architecture", "aws", "azure"]
 summary: Discussing whether or not organizations have a need to operate in multiple clouds at once.
 ---
 
