@@ -40,7 +40,7 @@ build:
 
 deploy:
   stage: deploy
-  image: microsoft/azure-cli
+  image: mcr.microsoft.com/azure-cli
   dependencies:
     - build
     - leaks
