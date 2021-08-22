@@ -8,9 +8,11 @@ categories: ["architecture", "aws", "azure"]
 summary: Discussing whether or not organizations have a need to operate in multiple clouds at once.
 ---
 
-TL;DR: No.
+TL;DR: Probably not, but it depends on why you're asking the question.
 
-Long version: Probably not, but it depends on why you're asking the question.  If your organization is discussing multi-cloud architecture for DR or avoiding lock-in, then your organization almost certainly has no need to use more than one cloud platform.
+Long version: If your organization is discussing multi-cloud architecture for disaster recovery or avoiding lock-in, then your organization almost certainly has no need to use more than one cloud platform.  Most organizations' DR requirements can be met in a single cloud.
+
+On the other hand, if you've determined that a given cloud provider doesn't fit the use cases for all of your applications, then it may make sense for your organization to begin moving to a multi-cloud architecture.  This option becomes more likely the larger an organization becomes and the more applications it has under its umbrella.
 
 The main questions that inform this decision should be:
 
@@ -34,11 +36,11 @@ There are some circumstances, noted in the following section, where this may be 
 
 ### Avoiding vendor lock-in
 
-While this can be a nice idea in theory, in practice it's rarely worth the effort.  Ensuring that your environment is cloud-agnostic means your architecture must follow one of two paths.  Either your architecture across both clouds needs to be identical, which will prevent you from using a lot of the specialty features of both providers, or the architecture for each cloud is unique, causing extra design and implementation work.
+While this can be a nice idea in theory, in practice it's rarely worth the effort for smaller organizations.  Ensuring that your environment is cloud-agnostic means your architecture must follow one of two paths.  Either your architecture across both clouds needs to be identical, which will prevent you from using a lot of the specialty features of both providers, or the architecture for each cloud is unique, causing extra design and implementation work.
 
 For example, while AWS API Gateway provides support for Canary deployments out of the box, while Azure API Management service doesn't.  This won't prevent using a different pattern for Canary deployments in Azure, but it does mean that architecture and implementation will require twice the work.  Working to have identical offerings across platforms also prevents you from taking advantage of the specialties of a given cloud, such as AWS RDS for easy creation of databases, or Azure's built-in Windows and SQL integrations.
 
-As noted in the questions at the beginning of this article, these limitations don't mean that this path should be rejected out of hand.  It does mean that there should be a strong need to avoid this lock-in.
+As noted in the questions at the beginning of this article, these limitations don't mean that this path should be rejected out of hand.  It does mean that there should be a strong need to avoid this lock-in.  The larger an organization becomes, the more of a concern this becomes.  Larger organizations do have less concern about the additional architecture work required, as they typically have more resources to draw on.
 
 ### Increased Networking costs
 
