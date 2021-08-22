@@ -18,7 +18,7 @@ leaks:
     name: "zricethezav/gitleaks"
     entrypoint: [""]
   script:
-    - gitleaks -v --repo-path=./
+    - gitleaks -v --path=./
 
 test:
   image: registry.gitlab.com/pages/hugo:latest
