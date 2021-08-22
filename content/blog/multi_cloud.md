@@ -18,7 +18,7 @@ The main questions that inform this decision should be:
 2. Does your organization require as close to __100% uptime__ as is currently possible?
 3. Is dealing with the __operational overhead__ that comes with splitting an application across two data centers worth these features?
 
-As a rule of thumb, it is usually preferable to keep your organization's main application workloads entirely within a single cloud provider.  This won't always be the case, and making this choice will depend on the exact circumstances and needs of your organization.  Generally speaking, however, if the decision to use multiple cloud provides is a question rather than an application requirement, the answer should almost always be to remain with a single provider.
+As a rule of thumb, it is usually preferable to keep your organization's main application workloads entirely within a single cloud provider.  This won't always be the case, and making this choice will depend on the exact circumstances and needs of your organization.  Generally speaking, if the decision to use multiple cloud provides is a question rather than an application requirement, the answer should be to remain with a single provider.
 
 ## Why you shouldn't use multiple cloud vendors
 
