@@ -17,6 +17,6 @@ jobs:
     - name: Initialize submodules
       run: git submodule update --init --recursive 
     - name: Hugo setup
-      uses: peaceiris/actions-hugo@v2.3.0
+      uses: peaceiris/actions-hugo@v3.0.0
     - name: Build the Hugo project
       run: hugo -D
