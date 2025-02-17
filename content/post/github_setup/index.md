@@ -12,7 +12,7 @@ summary: >
 
 I recently found myself needing to move away from Azure due to the recent [retirement of Edgio](https://learn.microsoft.com/en-us/azure/cdn/edgio-retirement-faq) and subsequent ballooning of my Azure bill from a couple pennies a month to a couple of Hamiltons.
 As I have been using GitLab in a professional capacity for a couple years, this seemed like a good opportunity to look into GitHub actions again for a quick comparison.
-This article discuss the migration process and takeaways from a [previous comparison](../gitlab_setup/gitlab_setup.md) of mine.
+This article discuss the migration process and takeaways from a [previous comparison]({{< relref "gitlab_setup.md" >}}) of mine.
 
 ## Comparison
 
@@ -21,31 +21,31 @@ In running through each pipeline's configuration, I've found that I strongly pre
 ### GitHub Actions
 
 Pros:
-    - Seamless integration with GitHub repositories.
-    - Extensive marketplace with pre-built actions.
-    - Free for public repositories.
-    - Supports matrix builds for testing across multiple environments.
-    - Lots of quick-start material tailored to common use-cases.
+- Seamless integration with GitHub repositories.
+- Extensive marketplace with pre-built actions.
+- Free for public repositories.
+- Supports matrix builds for testing across multiple environments.
+- Lots of quick-start material tailored to common use-cases.
 
 Cons:
-    - Limited free minutes for private repositories.
-    - Can be more complex for advanced workflows.
-    - Less mature compared to other CI/CD systems.
-    - Debugging can be challenging without proper logging.
+- Limited free minutes for private repositories.
+- Can be more complex for advanced workflows.
+- Less mature compared to other CI/CD systems.
+- Debugging can be challenging without proper logging.
 
 ### GitLab CI/CD
 
 Pros:
-    - Separate stages make it easy to run different steps in different contexts.
-    - Jobs allow lots of overwriting options, which make it very powerful and customizable.
-    - Built-in dashboards allow visibility into builds. Note that this is free for public projects, but requires a paid plan for private projects.
+- Separate stages make it easy to run different steps in different contexts.
+- Jobs allow lots of overwriting options, which make it very powerful and customizable.
+- Built-in dashboards allow visibility into builds. Note that this is free for public projects, but requires a paid plan for private projects.
 
 Cons:
-    - GitLab is a less commonly used system.
-    - No marketplace of pre-built actions.
-    - Customizable jobs lead to a great deal of complexity if not properly handled.
-    - Some features require a paid plan.
-    - Many simple projects don't need the full GitLab feature set.
+- GitLab is a less commonly used system.
+- No marketplace of pre-built actions.
+- Customizable jobs lead to a great deal of complexity if not properly handled.
+- Some features require a paid plan.
+- Many simple projects don't need the full GitLab feature set.
 
 ## Migration Findings
 
