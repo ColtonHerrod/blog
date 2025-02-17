@@ -10,7 +10,7 @@ summary: >
 
 ## Overview
 
-I recently found myself needing to move away from Azure due to the recent retirement of Edgio and subsequent ballooning of my Azure bill.
+I recently found myself needing to move away from Azure due to the recent [retirement of Edgio](https://learn.microsoft.com/en-us/azure/cdn/edgio-retirement-faq) and subsequent ballooning of my Azure bill from a couple pennies a month to a couple of Hamiltons.
 As I have been using GitLab in a professional capacity for a couple years, this seemed like a good opportunity to look into GitHub actions again for a quick comparison.
 This article discuss the migration process and takeaways from a [previous comparison](../gitlab_setup/gitlab_setup.md) of mine.
 
