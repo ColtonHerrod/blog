@@ -3,13 +3,11 @@ name: CI
 on:
   push:
     branches-ignore:
-      - master
+      - main
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
       with:

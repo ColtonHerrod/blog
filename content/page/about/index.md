@@ -1,10 +1,19 @@
-+++
-title = "About Me"
-author = "Colton Herrod"
-date = "2020-12-27"
-layout = "about"
-+++
-
+---
+title: About
+description: Hugo, the world's fastest framework for building websites
+date: "2020-12-27"
+aliases:
+  - about-us
+  - about-hugo
+  - contact
+license: CC BY-NC-ND
+lastmod: '2020-10-09'
+menu:
+    main: 
+        weight: -90
+        params:
+            icon: user
+---
 
 I am a DevOps engineer based in Norman, Oklahoma.  I specialize in AWS cloud technologies, with a primary focus on developer-driven infrastructure, workload automation, and data center migration.
 
