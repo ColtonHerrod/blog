@@ -1,8 +1,11 @@
 baseurl: blog.coltonherrod.com
 languageCode: en-us
-theme: hugo-theme-stack
+theme: 
+    - hugo-embed-pdf-shortcode
+    - hugo-theme-stack
 title: Colton Herrod
 copyright: Colton Herrod
+enableInlineShortcodes: true
 
 # Theme i18n support
 # Available values: ar, bn, ca, de, el, en, es, fr, hu, id, it, ja, ko, nl, pt-br, th, uk, zh-cn, zh-hk, zh-tw
@@ -78,7 +81,7 @@ params:
             default: Licensed under CC BY-NC-SA 4.0
 
     comments:
-        enabled: true
+        enabled: false
         provider: disqus
 
         disqusjs:
@@ -215,7 +218,6 @@ menu:
           url: https://github.com/ColtonHerrod
           params:
               icon: brand-github
-
 related:
     includeNewer: true
     threshold: 60
